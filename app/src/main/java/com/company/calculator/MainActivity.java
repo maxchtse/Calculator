@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         assignID(button7, R.id.button_7);
         assignID(button8, R.id.button_8);
         assignID(button9, R.id.button_9);
-        assignID(buttonAC, R.id.button_0);
+        assignID(buttonAC, R.id.button_AC);
         assignID(buttonDot, R.id.button_dot);
     }
 
@@ -54,6 +54,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         MaterialButton button = (MaterialButton) view;
         String buttonText = button.getText().toString();
-        solutionTv.setText(buttonText);
+        String dataToCalculate = solutionTv.getText().toString();
+
+        if(buttonText.equals("AC")){
+            solutionTv.setText("");
+            resultTv.setText("0");
+            return;
+        }
+        if(buttonText.equals("=")) {
+            solutionTv.setText(resultTv.getText());
+            return;
+        }
+        if(buttonText.equals("C")){
+            dataToCalculate = dataToCalculate.substring(0, dataToCalculate.length()-1);
+        } else {
+            dataToCalculate = dataToCalculate + buttonText;
+        }
+        solutionTv.setText(dataToCalculate);
     }
+
+    String getResult(String data){
+        return "Calculated";
 }
