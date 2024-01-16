@@ -180,7 +180,7 @@
                 android:textSize="32dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_add"
+                android:id="@+id/button_plus"
                 android:backgroundTint="#FFC300"
                 android:text="+" />
         </LinearLayout>
